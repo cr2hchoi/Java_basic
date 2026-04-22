@@ -51,8 +51,6 @@ public class Q6_StudentScoreAnalysisTodo {
         // - "프로그램 종료" 출력 후 break
 
 
-
-
         // TODO 8: Scanner 닫기
 
 
