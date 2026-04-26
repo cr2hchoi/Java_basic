@@ -210,3 +210,4 @@ public class StudentScoreAnalysis {
 3) 분석(4번) 시 for 문을 사용해 max 변수와 sum 변수를 갱신하여 결과값을 산출한다.
 
 4) scanner.nextLine()을 사용하면 엔터키 처리 문제 없이 정수형 입력을 안전하게 변환할 수 있다.
+

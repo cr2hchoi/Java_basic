@@ -1,5 +1,5 @@
+package 이것이자바다_확인문제.Chaptor03;
 
-package chaptor03;
 
 public class Q1 {
     public static void main(String[] argss) {

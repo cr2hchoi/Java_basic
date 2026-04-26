@@ -1,0 +1,10 @@
+package 이것이자바다_확인문제.Chaptor03;
+
+public class Q6 {
+    static void main() {
+        int x = 10;
+        int y = 5;
+        System.out.println( (x>7) && (y<=5) );
+        System.out.println( (x%3 == 2) || (y%2 != 1) );
+    }
+}
