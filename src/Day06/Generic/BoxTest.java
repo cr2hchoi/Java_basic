@@ -16,9 +16,7 @@ public class BoxTest {
         Box box1 = new Box();
         Box box2 =new Box();
 
-        box1.setContent() = 100;
-        box2.setContent() = "200";
-        boolean r1 = box1.compare(box1,box2);
+
 
 
     }

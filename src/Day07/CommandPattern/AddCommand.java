@@ -1,0 +1,15 @@
+package Day07.CommandPattern;
+
+public class AddCommand implements Command{
+
+    @Override
+    public void execute() {
+        System.out.println("===========");
+        System.out.println("Add command");
+        System.out.println("===========");
+        System.out.println();
+    }
+
+
+
+}
