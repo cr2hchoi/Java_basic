@@ -1,4 +1,4 @@
-package Day06.Collection;
+package Day06.Collection.Board;
 
 public class Board {
     private String subject;

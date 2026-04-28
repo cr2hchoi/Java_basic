@@ -1,4 +1,4 @@
-package Day06.Collection;
+package Day06.Collection.Board;
 
 import java.util.ArrayList;
 import java.util.List;
