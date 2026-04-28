@@ -31,6 +31,7 @@
 │       ├── 📄 SmartTelevision.java
 │       └── 📄 Television.java
 └── 📄 JavaPractive_Day02.md
+
 ##  📝 Java 핵심 정리: 상속 (Inheritance)
 ### 1. 자바에서 상속의 정의와 특징 
 **정의** 
