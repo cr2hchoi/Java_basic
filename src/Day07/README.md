@@ -1,25 +1,66 @@
 # Day 07 | 2026. 04. 28 (The) 
 
 # 📂 Java 연습 파일 목록
-### (1) 📂 Iterator 
-ㄴ Book.java
-ㄴ BookShelf.java
-ㄴ BookShelfIterator.java
-ㄴ Main.java
-### (2) 📂 Queue
-ㄴ Message.java
-ㄴ QueueExample.java
-### (3) 📂 CommandPattern
-ㄴ Command.java (interface) : 명령을 전달하는 인터페이스 
-ㄴ Main.java : command 패턴을 배열로 만들어 직접 수행하는 실행 클래스 
-ㄴ OpenCommand.java : Command 구현 클래스로, 오버라이딩으로 Opne명령 수행 
-ㄴ AddCommand.java : Command 구현 클래스로, 오버라이딩으로 Add 명령 수행
-ㄴ PrintCommand.java : Command 구현 클래스로, 오버라이딩으로 Print명령 수행
-ㄴ ExitCommand.java : Command 구현 클래스로, 오버라이딩으로 Exit명령 (실행 종료) 수행
-### (4) 📂 Comparable 
-ㄴ Main1.java : Comparable 인터페이스로 사용자 객체를 나이순으로 정렬하는 예제
-ㄴ Main2.java : Comparator 인터페이스로 정렬 
-ㄴ Main4.java : Comparable 인터페이스에서 thenComparing으로 여러 정렬 기준세워 정렬하기 
+```
+📂 Day07
+├── 📂 Iterator
+│   ├── 📄 Book.java
+│   ├── 📄 BookShelf.java
+│   ├── 📄 BookShelfIterator.java
+│   └── 📄 Main.java
+├── 📂 Queue
+│   ├── 📄 Message.java
+│   └── 📄 QueueExample.java
+├── 📂 CommandPattern
+│   ├── 📄 Command.java (interface)
+│   ├── 📄 Main.java
+│   ├── 📄 OpenCommand.java
+│   ├── 📄 AddCommand.java
+│   ├── 📄 PrintCommand.java
+│   └── 📄 ExitCommand.java
+├── 📂 Comparable
+│   ├── 📄 Main1.java (Comparable)
+│   ├── 📄 Main2.java (Comparator)
+│   └── 📄 Main4.java (thenComparing)
+└── 📄 JavaPractice_Day07.md
+```
+### 🔄 컬렉션 및 반복자 (Iterator)
+* **Book.java / BookShelf.java / BookShelfIterator.java**
+    - **내용**: 사용자 정의 컬렉션 구현
+    - **상세**: `Iterator` 패턴을 직접 구현하여 `BookShelf` 내부 요소를 순차적으로 순회하는 실습
+* **Main.java**
+    - **내용**: Iterator 활용
+    - **상세**: `Iterator` 인터페이스를 통해 컬렉션 내부 구조와 상관없이 일관되게 요소를 읽어오는 예제
+
+### 📥 자료구조 (Queue)
+* **Message.java**
+    - **내용**: 큐에 담을 데이터 객체 정의
+    - **상세**: FIFO(선입선출) 방식으로 처리될 메시지 데이터 구조 설계
+* **QueueExample.java**
+    - **내용**: Queue 인터페이스 활용
+    - **상세**: `offer`, `poll`, `peek` 메서드를 활용한 큐의 기본 동작 및 메시지 처리 실습
+
+### ⚙️ 디자인 패턴 (Command Pattern)
+* **Command.java**
+    - **내용**: 명령 인터페이스
+    - **상세**: 명령을 추상화하여 독립된 객체로 만들기 위한 규격 정의
+* **Open/Add/Print/ExitCommand.java**
+    - **내용**: 명령 구현 클래스
+    - **상세**: `Command` 인터페이스를 오버라이딩하여 각기 다른 동작(명령)을 수행하도록 캡슐화
+* **Main.java**
+    - **내용**: Command 패턴 실행
+    - **상세**: 명령 객체들을 배열로 관리하고 호출하여 프로그램을 제어하는 실행 클래스
+
+### ⚖️ 정렬 (Comparable/Comparator)
+* **Main1.java**
+    - **내용**: Comparable 인터페이스
+    - **상세**: 객체 스스로가 가지는 기본 정렬 기준(`compareTo`) 정의 및 적용 실습
+* **Main2.java**
+    - **내용**: Comparator 인터페이스
+    - **상세**: 기본 정렬 외에 상황에 따른 별도의 정렬 기준을 마련하여 정렬하는 실습
+* **Main4.java**
+    - **내용**: 복합 정렬 기준
+    - **상세**: `thenComparing`을 활용하여 여러 조건을 순차적으로 적용하는 정렬 실습
 
 ---
 
