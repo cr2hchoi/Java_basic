@@ -1,5 +1,8 @@
 package Day09.todo;
-import day11.stream2.student.todo.common.Product; import java.util.List;
+import Day09.todo.common.Product;
+
+import java.util.List;
+
 public class Ex05_FilteringTodo {
     public static void main(String[] args) {
         List<Product> products = List.of(new Product(1,"키보드","PC",45000,12), new Product(2,"마우스","PC",25000,0), new Product(3,"텀블러","LIFE",18000,30), new Product(4,"키보드","PC",45000,12));

@@ -1,5 +1,8 @@
 package Day09.todo;
-import day11.stream2.student.todo.common.Order; import java.util.List;
+import Day09.todo.common.Order;
+
+import java.util.List;
+
 public class Ex10_BasicAggregateTodo {
     public static void main(String[] args) {
         List<Order> orders = List.of(new Order(1,"홍길동","DONE",30000), new Order(2,"김수영","READY",12000), new Order(3,"오해영","DONE",45000), new Order(4,"강감찬","DONE",22000));

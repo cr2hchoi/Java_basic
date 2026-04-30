@@ -10,7 +10,7 @@ public class Ex08_LoopingTodo {
         //peek() 중간 처리 -> 출력, 최종처리(sum)이 호출되기 전까지 실행되지 않도록 한다.
         int totalValue = Arrays.stream(arr)
                 .filter(n -> n % 2 == 0)
-                .peek(n -> System.out.println("peek() 중간값 확인" + totalValue))
+                .peek(n -> System.out.println("peek() 중간값 확인" ))
                 .sum();
         // TODO 2: forEach로 짝수만 최종 출력하세요.
         Arrays.stream(arr)
