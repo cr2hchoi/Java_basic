@@ -144,6 +144,7 @@ public class Member {
 ## 14. Member 클래스 생성자 선언
 **Q. name 필드와 id 필드를 외부에서 받은 값으로 초기화하도록 생성자를 선언해보세요.**
 
+
 [예제코드]
 ```
 Member user1 = new Member("홍길동", "hong");
@@ -184,7 +185,9 @@ public class MemberService {
 ```
 ## 15. MemberService 클래스와 메소드 선언
 **Q. 다음 조건과 예제 코드를 보고 login(), logout() 메소드를 선언해보세요.**
+
 ![img_1.png](img_1.png)
+
 ```java
 public class MemberService {
     
@@ -210,6 +213,7 @@ public class MemberService {
 
 ## 16. Printer 클래스 메소드 오버로딩
 **Q. println() 메소드의 매개값으로 int, boolean, double, String 타입을 받을 수 있도록 Printer 클래스에서 메소드를 오버로딩하여 선언해보세요.**
+
 ![img_2.png](img_2.png)
 ```java
 public class Printer {
@@ -244,6 +248,7 @@ public class Printer {
 
 ## 18. 싱글톤(Singleton) 패턴 적용
 **Q. 싱글톤 패턴을 사용하여 obj1과 obj2가 동일한 객체를 참조하도록 ShopService 클래스를 작성해보세요.**
+
 ![img_3.png](img_3.png)
 ```java
 public class ShopService {
@@ -312,4 +317,6 @@ public class Account {
     }
 }
 ```
+## 20. 종합 실습: 은행 관리 프로그램
 
+**Q. 다음은 키보드로부터 계좌 정보를 입력받아 계좌를 관리하는 프로그램입니다. 계좌는 Account 객체로 생성되고 BankApplication에서 길이 100인 Account[ ] 배열로 관리됩니다. 실행 결과를 보고, Account와 BankApplication 클래스를 작성해보세요(키보드로 입력받을 때는 Scanner 의 nextLine () 메소드를 사용).**
