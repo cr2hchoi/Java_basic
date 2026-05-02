@@ -82,3 +82,234 @@
 
 * **정답: ➋**
 * **해설**: `final` 필드는 생성자에서 초기화할 수 있지만, `static final`로 선언된 상수는 객체 생성과 무관하게 클래스가 로딩될 때 메모리에 올라가므로 생성자에서 초기화할 수 없다. 상수는 선언 시점에 바로 값을 대입하거나, `static` 블록을 통해서만 초기화해야 한다.
+
+
+## 10. 패키지 (Package)
+**Q. 패키지에 대한 설명으로 틀린 것은 무엇입니까?**
+- [ ] ➊ 패키지는 클래스들을 그룹화시키는 기능을 한다.
+- [ ] ➋ 클래스가 패키지에 소속되려면 패키지 선언을 반드시 해야 한다.
+- [ ] ➌ import 문은 다른 패키지의 클래스를 사용할 때 필요하다.
+- [x] ➍ com.mycom 패키지에 소속된 클래스는 com.yourcom에 옮겨 놓아도 동작한다.
+
+**정답: ➍**
+
+**해설**
+> 자바에서 클래스의 풀 네임(Fully Qualified Name)에는 패키지 정보가 포함된다.
+> 클래스 파일 내부의 `package com.mycom;` 선언과 실제 파일이 위치한 디렉토리 구조가 일치해야 하므로, 물리적인 위치만 `com.yourcom`으로 옮긴다고 해서
+> 정상적으로 동작하지 않는다. 패키지를 변경하려면 소스 코드 내의 `package` 선언문도 함께 수정해야 합니다.
+
+## 11. 접근 제한자 (Access Modifier)
+**Q. 접근 제한에 대한 설명으로 틀린 것은 무엇입니까?**
+- [ ] ➊ 접근 제한자는 클래스, 필드, 생성자, 메소드의 사용을 제한한다.
+- [ ] ➋ public 접근 제한은 아무런 제한 없이 해당 요소를 사용할 수 있게 한다.
+- [x] ➌ default 접근 제한은 해당 클래스 내부에서만 사용을 허가한다.
+- [ ] ➍ 외부에서 접근하지 못하도록 하려면 private 접근 제한을 해야 한다.
+
+**정답: ➌**
+**해설**
+>`default` 접근 제한(접근 제한자를 명시하지 않은 경우)은 해당 클래스 내부뿐만 아니라, **동일한 패키지**에 속한 모든 클래스에서 접근이 가능하다. 클래스 내부에서만 사용을 허가하는 것은 `private` 접근 제한이다.
+
+
+## 12. 클래스 구성 멤버 식별
+**Q. 다음 클래스에서 해당 멤버가 필드, 생성자, 메소드 중 어떤 것인지 ( ) 안에 적어보세요.**
+```java
+public class Member {
+    private String name;             // ( 필드 )
+    public Member(String name) { … } // ( 생성자 )
+    public void setName(String name) { … } // ( 메소드 )
+}
+``` 
+**해설**
+>
+>필드(Field): 객체의 데이터를 저장하는 변수이다. 클래스 블록 내부에서 선언된다.
+>
+>생성자(Constructor): new 연산자로 객체를 생성할 때 호출되며, 객체의 초기화를 담당한다. 클래스 이름과 동일한 이름을 가지며 리턴 타입이 없다.
+>
+> 메소드(Method): 객체의 동작에 해당하는 실행 블록이다. 리턴 타입(위 예시에서는 void)이 반드시 명시되어야 한다.
+
+## 13. Member 클래스 선언
+**Q. 회원의 데이터(이름, 아이디, 패스워드, 나이)를 가지는 Member 클래스를 선언해보세요.**
+![img.png](img.png)
+```java
+public class Member {
+    String name;
+    String id;
+    String password;
+    int age;
+}
+```
+**해설**
+> 이름, 아이디, 패스워드는 문자열 데이터이므로 String 타입을 사용하고, 나이는 숫자 데이터이므로 int 타입을 사용한다. 클래스 내부에 선언된 이 변수들은 객체의 상태를 저장하는 **필드(Field)**가 된다.
+
+## 14. Member 클래스 생성자 선언
+**Q. name 필드와 id 필드를 외부에서 받은 값으로 초기화하도록 생성자를 선언해보세요.**
+
+[예제코드]
+```
+Member user1 = new Member("홍길동", "hong");
+``` 
+[정답]
+```java
+public class Member {
+    String name;
+    String id;
+    String password;
+    int age;
+
+    // 생성자 추가
+    public Member(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+## 15. MemberService 클래스와 메소드 선언
+**Q. 다음 조건과 예제 코드를 보고 login(), logout() 메소드를 선언해보세요.**
+```java
+public class MemberService {
+    
+    // login 메소드 선언
+    public boolean login(String id, String password) {
+        if (id.equals("hong") && password.equals("12345")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // logout 메소드 선언
+    public void logout(String id) {
+        System.out.println(id + "님이 로그아웃 되었습니다");
+    }
+}
+```
+## 15. MemberService 클래스와 메소드 선언
+**Q. 다음 조건과 예제 코드를 보고 login(), logout() 메소드를 선언해보세요.**
+![img_1.png](img_1.png)
+```java
+public class MemberService {
+    
+    // login 메소드 선언
+    public boolean login(String id, String password) {
+        if (id.equals("hong") && password.equals("12345")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // logout 메소드 선언
+    public void logout(String id) {
+        System.out.println(id + "님이 로그아웃 되었습니다");
+    }
+}
+ ```
+해설
+
+> * login() 메소드: 리턴 타입은 boolean이며, 매개변수로 id와 password를 받는다. 문자열 비교 시에는 == 연산자가 아닌 .equals() 메소드를 사용해야 정확한 비교가 가능하다. 조건이 맞으면 true, 틀리면 false를 리턴한다.
+> * logout() 메소드: 리턴값이 없으므로 리턴 타입을 void로 지정한다. 매개변수로 받은 id와 문자열을 결합하여 출력문을 작성한다.
+
+## 16. Printer 클래스 메소드 오버로딩
+**Q. println() 메소드의 매개값으로 int, boolean, double, String 타입을 받을 수 있도록 Printer 클래스에서 메소드를 오버로딩하여 선언해보세요.**
+![img_2.png](img_2.png)
+```java
+public class Printer {
+    
+    // int 타입을 매개값으로 받는 println 메소드
+    public void println(int value) {
+        System.out.println(value);
+    }
+
+    // boolean 타입을 매개값으로 받는 println 메소드
+    public void println(boolean value) {
+        System.out.println(value);
+    }
+
+    // double 타입을 매개값으로 받는 println 메소드
+    public void println(double value) {
+        System.out.println(value);
+    }
+
+    // String 타입을 매개값으로 받는 println 메소드
+    public void println(String value) {
+        System.out.println(value);
+    }
+}
+
+``` 
+해설
+
+> 메소드 오버로딩(Overloading): 클래스 내에 같은 이름의 메소드를 여러 개 선언하는 것이다. 단, 매개변수의 타입, 개수, 순서 중 하나는 반드시 달라야 한다.
+> 위 코드에서는 println이라는 동일한 이름을 사용하지만, 매개변수의 타입을 각각 int, boolean, double, String으로 다르게 선언하여 오버로딩을 구현한다.
+> 리턴값이 없이 출력만 수행하므로 리턴 타입은 모두 void로 지정한다.
+
+## 18. 싱글톤(Singleton) 패턴 적용
+**Q. 싱글톤 패턴을 사용하여 obj1과 obj2가 동일한 객체를 참조하도록 ShopService 클래스를 작성해보세요.**
+![img_3.png](img_3.png)
+```java
+public class ShopService {
+    // 1. 자신의 타입으로 정적 필드 선언 및 객체 생성
+    private static ShopService singleton = new ShopService();
+
+    // 2. 외부에서 new 연산자로 생성자를 호출할 수 없도록 private 제한
+    private ShopService() {}
+
+    // 3. 외부에서 객체를 얻을 수 있는 정적 메소드 선언
+    public static ShopService getInstance() {
+        return singleton;
+    }
+}
+```
+해설
+
+* 싱글톤 패턴이란?: 애플리케이션 전체에서 단 하나의 객체만 생성되도록 보장하는 디자인 패턴이다.
+
+> 구현 방법:
+클래스 내부에서 스스로의 인스턴스를 static 필드로 생성하고 private으로 감싸 외부 접근을 막는다.
+>
+>생성자를 private으로 선언하여 외부에서 new 연산자로 새로운 객체를 만들지 못하게 한다.
+>
+>getInstance()라는 정적 메소드를 통해 처음에 만들어둔 단 하나의 객체(singleton)만 리턴한다.
+>
+> 이렇게 하면 obj1과 obj2는 모두 메모리상의 동일한 주소를 가진 객체를 참조하게 되므로 obj1 == obj2 결과가 true가 된다.
+
+## 19. Setter와 Getter를 이용한 데이터 보호
+**Q. 잔고(balance) 필드가 0에서 1,000,000 사이의 값만 가질 수 있도록 Account 클래스를 작성해보세요.**
+
+[예제코드]
+```java
+Account account = new Account();
+account.setBalance(10000);
+System.out.println("현재 잔고: " + account.getBalance()); //현재 잔고: 10000
+        account.setBalance(-100);
+System.out.println("현재 잔고: " + account.getBalance()); //현재 잔고: 10000
+        account.setBalance(2000000);
+System.out.println("현재 잔고: " + account.getBalance()); //현재 잔고: 10000
+        account.setBalance(300000);
+System.out.println("현재 잔고: " + account.getBalance()); //현재 잔고: 300000
+```
+[정답]
+```java
+public class Account {
+    // 1. 상수 선언
+    public static final int MIN_BALANCE = 0;
+    public static final int MAX_BALANCE = 1000000;
+
+    // 2. 필드 선언 (외부 접근을 막기 위해 private)
+    private int balance;
+
+    // 3. Getter 선언
+    public int getBalance() {
+        return balance;
+    }
+
+    // 4. Setter 선언
+    public void setBalance(int balance) {
+        // 매개값이 0보다 작거나 백만 원을 초과하면 현재 balance 유지
+        if (balance >= MIN_BALANCE && balance <= MAX_BALANCE) {
+            this.balance = balance;
+        }
+        // 조건을 만족하지 않으면 아무런 처리도 하지 않음 (기존 값 유지)
+    }
+}
+```
+
