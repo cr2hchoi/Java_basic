@@ -1,4 +1,4 @@
-package 이것이자바다_확인문제.Chaptor03;
+package 이것이자바다_확인문제.Chapter03;
 
 public class Q2 {
     static void main() {

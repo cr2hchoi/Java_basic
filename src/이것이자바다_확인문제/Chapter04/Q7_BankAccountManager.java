@@ -1,4 +1,4 @@
-package 이것이자바다_확인문제.Chaptor04;
+package 이것이자바다_확인문제.Chapter04;
 
 //Scanner 글씨 썬택하고 alt enter 하면 임포트 되기도 함
 import java.util.Scanner;

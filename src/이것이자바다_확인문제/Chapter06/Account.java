@@ -1,4 +1,4 @@
-package 이것이자바다_확인문제.Chaptor06;
+package 이것이자바다_확인문제.Chapter06;
 
 //Chapter6_Q20 : 계좌 생성 클래스
 public class Account {

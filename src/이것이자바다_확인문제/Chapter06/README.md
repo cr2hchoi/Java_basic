@@ -277,6 +277,8 @@ public class ShopService {
 >
 > 이렇게 하면 obj1과 obj2는 모두 메모리상의 동일한 주소를 가진 객체를 참조하게 되므로 obj1 == obj2 결과가 true가 된다.
 
+---
+
 ## 19. Setter와 Getter를 이용한 데이터 보호
 **Q. 잔고(balance) 필드가 0에서 1,000,000 사이의 값만 가질 수 있도록 Account 클래스를 작성해보세요.**
 
@@ -317,6 +319,75 @@ public class Account {
     }
 }
 ```
+---
+
 ## 20. 종합 실습: 은행 관리 프로그램
 
 **Q. 다음은 키보드로부터 계좌 정보를 입력받아 계좌를 관리하는 프로그램입니다. 계좌는 Account 객체로 생성되고 BankApplication에서 길이 100인 Account[ ] 배열로 관리됩니다. 실행 결과를 보고, Account와 BankApplication 클래스를 작성해보세요(키보드로 입력받을 때는 Scanner 의 nextLine () 메소드를 사용).**
+
+[Account.java](Account.java)
+
+[BankApplication.java](BankApplication.java)
+
+### 1) Account 클래스 (계좌 정보 모델)
+
+### **주요 특징**
+*   **필드 캡슐화**: 모든 필드(`ano`, `owner`, `balance`)를 `private`으로 선언하여 외부의 직접적인 접근을 막고 데이터를 보호한다.
+*   **생성자**: 객체 생성 시점에 계좌번호, 예금주, 초기 잔액을 한 번에 설정한다.
+*   **Getter/Setter**: 외부에서 안전하게 필드 값을 읽거나 수정할 수 있도록 통로를 제공한다.
+
+### **핵심 코드**
+```java
+public class Account {
+    private String ano;    // 계좌번호
+    private String owner;  // 계좌주
+    private int balance;   // 잔고
+
+    public Account(String ano, String owner, int balance) {
+        this.ano = ano;
+        this.owner = owner;
+        this.balance = balance;
+    }
+    // Getter, Setter 생략...
+}
+```
+
+### 2) Account 클래스 (계좌 정보 모델)
+프로그램의 전체적인 흐름을 제어하는 **컨트롤러(Controller)** 역할
+
+### **주요 특징** 
+**1. 실행 구조와 필드**
+*   **`accountArray`**: 생성된 계좌 객체들을 저장하기 위한 `Account[100]` 배열이다. 최대 100개의 계좌를 관리할 수 있다.
+*   **`Scanner`**: 사용자로부터 메뉴 선택 및 계좌 정보를 입력받기 위해 `nextLine()` 메소드를 주로 사용한다. `nextInt()` 대신 `Integer.parseInt(scanner.nextLine())`을 사용하여 입력 버퍼 문제를 방지한다.
+
+**2. 핵심 기능(메소드) 설명**
+*   **`createAccount()`**: 사용자에게 계좌번호, 계좌주, 초기 금액을 입력받아 `new Account(...)`로 객체를 생성한 후, 배열의 빈 칸(`null`)에 저장한다.
+*   **`accountList()`**: 배열을 순회하며 `null`이 아닌 칸에 담긴 계좌 정보를 모두 출력한다.
+*   **`deposit()` / `withdraw()`**: 입력받은 계좌번호로 객체를 찾아 잔액을 수정한다. 이때 객체의 `Setter`를 통해 데이터를 업데이트한다.
+*   **`findAccount(String ano)`**: 가장 중요한 **보조 메소드**이다. 입력된 계좌번호와 배열 내 객체들의 계좌번호를 하나씩 비교하여 일치하는 객체를 찾아 반환한다.
+
+ **3. 프로그래밍 테크닉**
+*   **무한 루프(`while`)**: 사용자가 '5.종료'를 선택하기 전까지 메뉴를 계속해서 보여주고 입력을 기다린다.
+*   **참조 타입 비교**: 계좌번호 비교 시 `==`이 아닌 `equals()`를 사용하여 실제 문자열 값이 같은지 확인한다.
+*   **객체 배열 순회**: 배열의 크기는 100이지만 실제 담긴 객체는 그보다 적을 수 있으므로, 항상 `if(accountArray[i] != null)` 체크를 통해 `NullPointerException`을 방지한다.
+
+### **📌 주요 로직 흐름**
+```java
+// 1. 계좌 찾기 로직 (재사용성 높음)
+private static Account findAccount(String ano) {
+    for(int i=0; i<accountArray.length; i++) {
+        // 배열 요소가 null이 아니고, 계좌번호가 일치하는지 확인
+        if(accountArray[i] != null && accountArray[i].getAno().equals(ano)) {
+            return accountArray[i]; // 찾으면 해당 객체 리턴
+        }
+    }
+    return null; // 못 찾으면 null 리턴
+}
+
+// 2. 예금 시 잔액 업데이트 로직
+Account account = findAccount(ano); // 계좌 찾기
+if(account != null) {
+    // 기존 잔고를 가져와서 입력받은 금액을 더한 후 다시 저장
+    account.setBalance(account.getBalance() + money);
+}
+```
