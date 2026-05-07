@@ -28,9 +28,9 @@
     1) 순서 보장 안 됨: 여러 스레드가 동시에 출력하거나 작업하기 때문에, 원래 리스트에 있던 순서대로 동작하지 않는다.
     2) 공유 자원 문제: 여러 스레드가 동시에 외부의 변수(공유 자원)를 수정하려고 하면 데이터가 꼬이는 '레이스 컨디션'이 발생할 수 있다. 
     
+
+### ㄴ Ex03 _ PipelineTodo.java
     
-    
-### Ex03 _ PipelineTodo.java
 ### Ex04 _ StreamSourceTodo.java
 ### Ex05 _ FilteringTodo.java
 ### Ex07 _ SortingTodo.java
