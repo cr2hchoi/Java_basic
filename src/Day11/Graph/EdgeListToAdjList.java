@@ -1,5 +1,6 @@
 package Day11.Graph;
 
+//간선 정보 배열 -> 인접 리스트로 변환하는 코드
 import java.util.ArrayList;
 import java.util.List;
 
