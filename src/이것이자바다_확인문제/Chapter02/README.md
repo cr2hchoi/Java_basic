@@ -58,9 +58,9 @@ double price = 3.14;
 -[x] ➌ short shortValue = charValue; (❌ 에러!)
 -[ ] ➍ double doubleValue = byteValue;
 
-**정답: ➌**
-
-**해설:** char는 0~65535 범위로 음수가 없음
+>**정답: ➌**
+>
+>**해설:** char는 0~65535 범위로 음수가 없음
 반면 short는 음수를 포함하는 타입이므로, char에서 short로의 자동 타입 변환은 불가능
 
 ---
@@ -78,9 +78,9 @@ double price = 3.14;
 -[ ] ➌ int var = (int) doubleValue;
 -[x] ➍ char var = (char) strValue; (❌ 에러!)
 
-**정답: ➍**
-
-**해설:** String(참조 타입)과 char(기본 타입)은 근본적으로 형변환이 불가능합니다. 문자열을 문자로 바꾸려면 charAt() 등의 메서드를 써야 합니다.
+>**정답: ➍**
+>
+>**해설:** String(참조 타입)과 char(기본 타입)은 근본적으로 형변환이 불가능합니다. 문자열을 문자로 바꾸려면 charAt() 등의 메서드를 써야 합니다.
 
 ---
 
@@ -106,8 +106,9 @@ double price = 3.14;
 -[x] ➌ System.out.printf(“형식”, 변수)는 주어진 형식대로 변수값을 바꾼다.
 -[ ] ➍ Scanner의 nextLine() 메소드는 콘솔에 입력된 내용을 문자열로 읽는다.
 
-**정답: ➌**
-**해설:** printf는 출력 형식을 지정하는 메서드일 뿐이며, 변수에 저장된 실제 값을 변경하지 않습니다.
+>**정답: ➌**
+> 
+>**해설:** printf는 출력 형식을 지정하는 메서드일 뿐이며, 변수에 저장된 실제 값을 변경하지 않습니다.
 
 ---
 
@@ -123,8 +124,8 @@ double price = 3.14;
 - [ ] ➌ float result = 5 + floatValue;
 -[ ] ➍ double result = 5 + doubleValue;
 
-**정답: ➊**
-**해설:** 자바 정수 연산 시 byte, short 타입은 자동으로 int로 변환되어 계산됩니다. 따라서 byte + byte의 결과는 int이므로 byte 변수에 담을 수 없습니다.
+>**정답: ➊**
+>**해설:** 자바 정수 연산 시 byte, short 타입은 자동으로 int로 변환되어 계산됩니다. 따라서 byte + byte의 결과는 int이므로 byte 변수에 담을 수 없습니다.
 
 ---
 
@@ -138,8 +139,9 @@ double price = 3.14;
 -[ ] ➌ float var3 = Float.parseFloat(str);
 -[ ] ➍ double var4 = Double.parseDouble(str);
 
-**정답: ➋**
-**해설:** 자바의 래퍼 클래스 이름은 Integer입니다. 즉, Integer.parseInt(str)라고 적어야 합니다.
+> **정답: ➋**
+> 
+> **해설:** 자바의 래퍼 클래스 이름은 Integer입니다. 즉, Integer.parseInt(str)라고 적어야 합니다.
 
 ---
 
@@ -157,6 +159,6 @@ double price = 3.14;
 > }
 > System.out.println("v2: " + v2); // 에러 발생!
 
-**정답:** 안쪽 if문의 v3를 참조하는 라인, 바깥쪽 if문의 v2를 참조하는 라인
-
-**해설:** 변수는 선언된 {} 블록 안에서만 생존합니다. 해당 블록이 끝나면 변수는 소멸됩니다.
+> **정답:** 안쪽 if문의 v3를 참조하는 라인, 바깥쪽 if문의 v2를 참조하는 라인
+> 
+> **해설:** 변수는 선언된 {} 블록 안에서만 생존합니다. 해당 블록이 끝나면 변수는 소멸됩니다.
