@@ -83,3 +83,36 @@
 >
 > 인터페이스를 사용하면 다양한 구현 객체를 동일한 방식으로 사용할 수 있으며,  
 > 이를 다형성이라고 한다.
+
+---
+
+## 05. 인터페이스 구현
+
+### Q. TV 클래스를 실행했을 때 `"TV를 켰습니다."`가 출력되도록 밑줄과 박스에 들어갈 코드를 작성하세요.
+
+![img.png](img.png)
+
+### 정답
+
+```java
+public class TV implements Remocon {
+
+    @Override
+    public void powerOn() {
+        System.out.println("TV를 켰습니다.");
+    }
+
+    public static void main(String[] args) {
+
+        Remocon r = new TV();
+        r.powerOn();
+    }
+}
+```
+
+> **해설 :**  
+> 인터페이스를 구현할 때는 `implements` 키워드를 사용한다.
+>
+> 또한 인터페이스의 추상 메소드는 반드시 오버라이딩해야 한다.
+>
+> `Remocon r = new TV();`는 인터페이스 다형성을 사용한 예시이다.
