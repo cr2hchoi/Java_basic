@@ -67,7 +67,7 @@
 
 ### Q. 인터페이스 A를 B와 C가 구현하고, B를 상속해서 D 클래스, C를 상속해서 E 클래스를 만들었습니다.
 ### 다음 빈칸에 들어올 수 있는 것을 모두 선택하세요.
-
+![img.png](img.png)
 - [ ] ➊ new B()
 - [x] ➋ new C()
 - [ ] ➌ new D()
@@ -90,8 +90,7 @@
 
 ### Q. TV 클래스를 실행했을 때 `"TV를 켰습니다."`가 출력되도록 밑줄과 박스에 들어갈 코드를 작성하세요.
 
-![img.png](img.png)
-
+![img_2.png](img_2.png)
 ### 정답
 
 ```java
@@ -113,6 +112,54 @@ public class TV implements Remocon {
 > **해설 :**  
 > 인터페이스를 구현할 때는 `implements` 키워드를 사용한다.
 >
-> 또한 인터페이스의 추상 메소드는 반드시 오버라이딩해야 한다.
+> 또한 인터페이스의 추상 메소드인 `powerOn()` 메소드를 반드시 오버라이딩해야 한다.
 >
-> `Remocon r = new TV();`는 인터페이스 다형성을 사용한 예시이다.
+> `Remocon r = new TV();` 코드는 인터페이스 타입으로 구현 객체를 사용하는 다형성 예제이다.
+
+---
+
+## 06. 인터페이스 다형성 활용
+
+### Q. `Soundable` 인터페이스를 구현하여 `Cat`과 `Dog` 객체를 전달했을 때 각각 `"야옹"`, `"멍멍"`이 출력되도록 클래스를 작성하세요.
+
+![img.png](img.png)
+
+### Cat 클래스
+[Cat.java](Q6/Cat.java)
+```java
+public class Cat implements Soundable {
+
+    @Override
+    public String sound() {
+        return "야옹";
+    }
+}
+```
+
+### Dog 클래스
+[Dog.java](Q6/Dog.java)
+```java
+public class Dog implements Soundable {
+
+    @Override
+    public String sound() {
+        return "멍멍";
+    }
+}
+```
+
+### 실행 결과
+
+```text
+야옹
+멍멍
+```
+
+> **해설 :**  
+> `Cat`과 `Dog` 클래스는 `Soundable` 인터페이스를 구현한다.
+>
+> 따라서 `sound()` 추상 메소드를 반드시 오버라이딩해야 한다.
+>
+> `printSound()` 메소드는 매개변수 타입이 `Soundable`이므로,  
+> 인터페이스를 구현한 다양한 객체를 전달받을 수 있다.
+>
